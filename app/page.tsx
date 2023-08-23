@@ -12,37 +12,45 @@ export default function Home() {
       </div>
 
       <div className={styles.grid}>
-        <div className="input-group">
+        <div className={styles["input-group"]}>
           <Icon icon="material-symbols:search" />
           <input
             type="text"
             className="input-field"
-            placeholder="Enter your name"
+            placeholder="Name"
           />
         </div>
-        <div className="input-group">
+        <div className={styles["input-group"]}>
           <Icon icon="material-symbols:search" />
           <input
-            type="text"
+            type="number"
             className="input-field"
-            placeholder="Enter your name"
+            placeholder="Year of Strike"
           />
         </div>
-        <div className="input-group">
+        <div className={styles["input-group"]}>
           <Icon icon="material-symbols:search" />
           <input
             type="text"
             className="input-field"
-            placeholder="Enter your name"
+            placeholder="Meteorite Composition"
           />
         </div>
-        <div className="input-group">
+        <div className={styles["input-group"]}>
           <Icon icon="material-symbols:search" />
           <input
             type="text"
             className="input-field"
-            placeholder="Enter your name"
+            placeholder="Mass Range"
           />
+        </div>
+        <div className={styles.btn} id={styles["btn-search"]}>
+          <Icon icon="material-symbols:search" />
+          <button>Search</button>
+        </div>
+        <div className={styles.btn} id={styles["btn-clear"]}>
+          <Icon icon="material-symbols:delete" />
+          <button>Clear</button>
         </div>
       </div>
       {/* Meteor API */}
