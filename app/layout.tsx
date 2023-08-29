@@ -1,8 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Link from 'next/link'
+import NavBar from '@/components/ui/NavBar'
+import { MdOutlineWbSunny } from 'react-icons/md'
 
 export const metadata: Metadata = {
   title: 'Team 21 Fireball',
@@ -16,7 +16,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <main>
+          <header>
+            <h1>Logo</h1>
+            <MdOutlineWbSunny size={48}/>
+          </header>
+
+          <NavBar id='navbar'/>
+
+          {children}
+
+          <footer>© Copyright 2023 - Code Source&nbsp;<Link href="" id='code-source-link'>Here</Link></footer>
+        </main>
+      </body>
     </html>
   )
 }
