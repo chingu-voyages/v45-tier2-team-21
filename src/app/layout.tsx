@@ -20,7 +20,7 @@ export default function RootLayout({
         <main>
           <header>
             <h1>Logo</h1>
-            <MdOutlineWbSunny size={48}/>
+            <MdOutlineWbSunny size={32}/>
           </header>
 
           <NavBar id='navbar'/>

@@ -1,37 +1,29 @@
 :root {
   --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-color: #eb7b1e;
-  --gray-color: #7e7e7edb;
+  --border-radius-sm: 4px;
+  --border-radius-md: 12px;
+  --border-radius-xl: 28px;
+  --border-radius-full: 50%;
+  --primary-color-100: #fbe5d2;
+  --primary-color-400: #ef954b;
+  --primary-color-600: #bf773c;
+  --primary-color-800: #5e310c;
+  --secondary-color-100: #fcfcfc;
+  --secondary-color-400: #acacac;
+  --secondary-color-600: #7e7e7e;
+  --secondary-color-800: #1c1c1c;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(to bottom right,
-        rgba(1, 65, 255, 0),
-        rgba(1, 65, 255, 0),
-        rgba(1, 65, 255, 0.3));
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
+    --primary-color-100: #5e310c;
+    --primary-color-400: #bf773c;
+    --primary-color-600: #ef954b;
+    --primary-color-800: #fbe5d2;
+    --secondary-color-100: #1c1c1c;
+    --secondary-color-400: #7e7e7e;
+    --secondary-color-600: #acacac;
+    --secondary-color-800: #fcfcfc;
   }
 }
 
@@ -48,10 +40,14 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  color: var(--secondary-color-800);
+  background: var(--secondary-color-100);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
 }
 
 a {
@@ -81,23 +77,6 @@ header h1 {
   font-weight: bold;
 }
 
-#navbar {
-  position: absolute;
-  right: 24px;
-  top: 40%;
-}
-
-#navbar nav {
-  background-color: var(--gray-color);
-  padding: 1rem;
-  border-radius: 64px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
 footer {
   display: flex;
   justify-content: center;
@@ -105,13 +84,7 @@ footer {
 }
 
 footer #code-source-link {
-  color: var(--primary-color);
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+  color: var(--primary-color-400);
 }
 
 /* Responsive */
