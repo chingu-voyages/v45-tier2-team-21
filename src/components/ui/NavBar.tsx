@@ -11,13 +11,13 @@ const NavBar = (props:Props) => {
   return (
     <div {...props}>
       <nav>
-        <Link href="">
+        <Link href="/">
           <AiFillHome size={24}/>
         </Link>
-        <Link href="">
+        <Link href="/search">
           <BsSearch size={24}/>
         </Link>
-        <Link href="">
+        <Link href="/graph">
           <AiOutlineAreaChart size={24}/>
         </Link>
       </nav>
