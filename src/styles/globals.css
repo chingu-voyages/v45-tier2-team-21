@@ -1,5 +1,6 @@
 :root {
   --max-width: 1100px;
+  --spacing: 1.5rem;
   --border-radius-sm: 4px;
   --border-radius-md: 12px;
   --border-radius-xl: 28px;
@@ -23,7 +24,7 @@
     --secondary-color-400: #7e7e7e;
     --secondary-color-600: #acacac;
     --secondary-color-800: #fcfcfc;
-  }
+}
 
 * {
   box-sizing: border-box;
@@ -57,7 +58,7 @@ main {
 }
 
 header {
-  padding: 0 2rem;
+  padding: 0 var(--spacing);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,6 +74,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--secondary-color-600);
 }
 
 footer #code-source-link {

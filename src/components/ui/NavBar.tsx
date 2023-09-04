@@ -1,6 +1,5 @@
 "use client"
-import React from 'react'
-import styles from '@/styles/NavBar.module.css'
+import styles from '@/styles/navBar.module.css'
 import Link from 'next/link';
 import { BsSearch } from 'react-icons/bs';
 import { AiFillHome, AiOutlineAreaChart } from 'react-icons/ai';
