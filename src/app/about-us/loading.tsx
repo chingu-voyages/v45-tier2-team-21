@@ -1,9 +1,9 @@
 import Loader from '@/components/ui/Loader'
 
-const GraphicPageLoading = () => {
+const AboutPageLoading = () => {
   return (
     <Loader/>
   )
 }
 
-export default GraphicPageLoading
+export default AboutPageLoading

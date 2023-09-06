@@ -1,8 +1,8 @@
 "use client"
 import ErrorBoundary from "@/components/error/ErrorBoundary"
 
-const SearchPageError = ({ error, reset }: { error: Error, reset: () => void }) => {
+const AboutPageError = ({ error, reset }: { error: Error, reset: () => void }) => {
     return <ErrorBoundary error={error} reset={reset} />
 }
 
-export default SearchPageError
+export default AboutPageError

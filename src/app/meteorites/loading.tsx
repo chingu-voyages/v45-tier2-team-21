@@ -1,9 +1,9 @@
 import Loader from '@/components/ui/Loader'
 
-const SearchPageLoading = () => {
+const MeteoritesPageLoading = () => {
   return (
     <Loader/>
   )
 }
 
-export default SearchPageLoading
+export default MeteoritesPageLoading
