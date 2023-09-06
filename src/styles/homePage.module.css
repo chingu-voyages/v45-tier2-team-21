@@ -87,8 +87,6 @@
 
 /* Responsive */
 
-@media screen and (max-width: 640px) {}
-
 @media screen and (max-width: 768px) {
   .meteorite {
     opacity: 0;
@@ -105,14 +103,28 @@
     animation: fade-in 1s linear;
   }
 
+  #about {
+    width: 100%;
+  }
+
   #about #description {
     width: 100%;
   }
 
   #homepage {
     align-items: start;
-    justify-content: safe;
-    padding: 2rem;
+    justify-content: normal;
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #about #description h2 {
+    white-space: normal;
+  }
+
+  #about {
+    padding: 0.45rem;
   }
 }
 

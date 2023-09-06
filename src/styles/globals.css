@@ -57,19 +57,6 @@ main {
   grid-template-rows: 12% 80% 8%;
 }
 
-header {
-  padding: 0 var(--spacing);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
 footer {
   display: flex;
   justify-content: center;
@@ -81,10 +68,27 @@ footer #code-source-link {
   color: var(--primary-color-400);
 }
 
+#navbar {
+  display: none;
+}
+
 /* Responsive */
 
-@media screen and (min-width: 640px) {}
-
-@media screen and (min-width: 768px) {}
-
-@media screen and (min-width: 1024px) {}
+@media screen and (min-width: 768px) {
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 16px;
+    top: 40%;
+    width: min-content;
+    height: min-content;
+    background-color: var(--secondary-color-800);
+    padding: 1.5rem 0.5rem;
+    border-radius: var(--border-radius-md);
+    gap: 0.5rem;
+    z-index: 1000;
+  }
+}
