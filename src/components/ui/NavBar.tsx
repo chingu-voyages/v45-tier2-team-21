@@ -9,19 +9,19 @@ type Props = {
   iconsSize: number;
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
 
-const NavBar = (props: Props) => {
+const NavBar = ({iconsSize, ...props}: Props) => {
   const pathname = usePathname();
 
   return (
     <nav {...props} >
       <Link href="/" className={styles['icons']} id={pathname === "/" ? styles["active"] : ""} >
-        <AiFillHome size={props.iconsSize} />
+        <AiFillHome size={iconsSize} />
       </Link>
       <Link href="/meteorites" className={styles['icons']} id={pathname === "/meteorites" ? styles["active"] : ""} >
-        <AiOutlineAreaChart size={props.iconsSize} />
+        <AiOutlineAreaChart size={iconsSize} />
       </Link>
       <Link href="/about-us" className={styles['icons']} id={pathname === "/about-us" ? styles["active"] : ""}>
-        <MdPeople size={props.iconsSize} />
+        <MdPeople size={iconsSize} />
       </Link>
     </nav>
   )
