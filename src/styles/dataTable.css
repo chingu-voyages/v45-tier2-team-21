@@ -1,0 +1,71 @@
+#wrapper {
+  width: min(900px, 100% - 3rem);
+  height: 25rem;
+  overflow: auto;
+  border-radius: var(--border-radius-sm);
+  background-color: #d1c4c48b;
+  border: 2px solid var(--secondary-color-800);
+}
+
+#wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+#wrapper::-webkit-scrollbar-track {
+  background: #d0d7d5b3;
+}
+
+#wrapper::-webkit-scrollbar-thumb {
+  border-radius: var(--border-radius-md);
+  height: 7px;
+  background: var(--primary-color-100);
+}
+
+#wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color-400);
+}
+
+table {
+  position: relative;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--secondary-color-800);
+  white-space: nowrap;
+}
+
+thead>tr {
+  position: sticky;
+  top: 0;
+}
+
+thead>tr>th {
+  background-color: var(--primary-color-600);
+  color: var(--secondary-color-100);
+  padding: 0.75rem 0.5rem 0.25rem 0.5rem;
+}
+
+tr:nth-child(even) {
+  background-color: #b1aaaaa5;
+  color: var(--secondary-color-100);
+}
+
+.sortable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+#controller {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
