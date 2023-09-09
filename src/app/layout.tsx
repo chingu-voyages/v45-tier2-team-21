@@ -2,7 +2,8 @@ import '@/styles/globals.css';
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import NavBar from '@/components/ui/NavBar'
-import { MdOutlineWbSunny } from 'react-icons/md'
+import NextThemesProvider from '@/providers/NextThemesProvider';
+import ThemeButton from '@/components/ui/ThemeButton';
 
 export const metadata: Metadata = {
   title: 'Team 21 Fireball',
@@ -15,20 +16,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <main>
-          <header>
-            <h1>Logo</h1>
-            <MdOutlineWbSunny size={32}/>
-          </header>
+        <NextThemesProvider>
+          <main>
+            <header>
+              <h1>Logo</h1>
+              <ThemeButton />
+            </header>
 
-          <NavBar id='navbar'/>
+            <NavBar id='navbar' />
 
-          {children}
+            {children}
 
-          <footer>© Copyright 2023 - Code Source&nbsp;<Link href="" id='code-source-link'>Here</Link></footer>
-        </main>
+            <footer>© Copyright 2023 - Code Source&nbsp;<Link href="" id='code-source-link'>Here</Link></footer>
+          </main>
+        </NextThemesProvider>
       </body>
     </html>
   )
