@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&family=Orbitron:wght@500&display=swap');
+
 :root {
   --max-width: 1100px;
   --spacing: 1.5rem;
@@ -13,6 +15,7 @@
   --secondary-color-400: #acacac;
   --secondary-color-600: #7e7e7e;
   --secondary-color-800: #1c1c1c;
+  --default-font: 'Nunito Sans', sans-serif;
 }
 
 [data-theme = dark] {
@@ -41,6 +44,7 @@ body {
 body {
   color: var(--secondary-color-800);
   background: var(--secondary-color-100);
+  font-family: var(--default-font);
 }
 
 a {

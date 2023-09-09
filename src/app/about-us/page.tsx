@@ -1,8 +1,15 @@
-type Props = {}
+import UserCard from "@/components/userCard"
 
-const AboutPage = (props: Props) => {
+const AboutPage = () => {
   return (
-    <div>AboutPage</div>
+    <section>
+      <h1>Our Team</h1>
+      <UserCard
+        name="Josh"
+        description=""
+        username="Haru-hue"
+      />
+    </section>
   )
 }
 
