@@ -1,9 +1,10 @@
 import '@/styles/globals.css';
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import NavBar from '@/components/ui/NavBar'
 import NextThemesProvider from '@/providers/NextThemesProvider';
-import ThemeButton from '@/components/ui/ThemeButton';
+import NextProgressBarProvider from '@/providers/NextProgressBarProvider';
+import Header from '@/components/Header';
+import NavBar from '@/components/ui/NavBar';
 
 export const metadata: Metadata = {
   title: 'Team 21 Fireball',
@@ -19,18 +20,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <NextThemesProvider>
-          <main>
-            <header>
-              <h1>Logo</h1>
-              <ThemeButton />
-            </header>
-
-            <NavBar id='navbar' />
-
-            {children}
-
-            <footer>© Copyright 2023 - Code Source&nbsp;<Link href="" id='code-source-link'>Here</Link></footer>
-          </main>
+          <NextProgressBarProvider>
+            <main>
+              <Header />
+              <NavBar iconsSize={24} id='navbar'/>
+              {children}
+              <footer>© Copyright 2023 - Code Source&nbsp;<Link href="" id='code-source-link'>Here</Link></footer>
+            </main>
+          </NextProgressBarProvider>
         </NextThemesProvider>
       </body>
     </html>

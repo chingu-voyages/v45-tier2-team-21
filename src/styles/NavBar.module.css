@@ -1,24 +1,9 @@
-#navbar {
-  position: absolute;
-  right: 16px;
-  top: 40%;
-  width: min-content;
-  height: min-content;
-  background-color: var(--secondary-color-800);
-  padding: 1.5rem 0.5rem;
-  border-radius: var(--border-radius-md);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-}
-
 .icons {
   color: var(--secondary-color-100);
   padding: 0.5rem;
   border-radius: var(--border-radius-sm);
-  transition: all 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 #active {
