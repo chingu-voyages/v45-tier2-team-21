@@ -13,7 +13,7 @@ import FilterSearch from "@/components/filterSearch";
 Chart.register(CategoryScale);
 
 const MeteoritesPage = () => {
-  const [meteorites, setMeteorites] = useState<Meteorite[]>([]);
+
   const [filteredData, setFilteredData] = useState<Meteorite[]>([]);
   const [chartData, setChartData] = useState({
     bar: {},
@@ -28,7 +28,7 @@ const MeteoritesPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getMeteorites();
-
+      console.log(data);
       const filtered = data.filter((met) =>
         met.name.toLowerCase().includes(inputValue.toLowerCase())
       );
@@ -74,7 +74,7 @@ const MeteoritesPage = () => {
           <BarChart chartData={chartData.bar} />
           <PieChart chartData={chartData.pie} />
         </div>
-        <DataTable data={meteorites} columns={columns} />
+        <DataTable data={filteredData} columns={columns} />
       </div>
     </div>
   );

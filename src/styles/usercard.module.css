@@ -1,0 +1,30 @@
+.team {
+    display: flex;
+    align-items: center;
+}
+
+.users {
+    display: flex;
+    border: 1px solid white;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 12.5px;
+    padding: 1rem;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 300px;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+}
+
+.user a {
+    align-self: flex-end;
+    padding: 1rem;
+}

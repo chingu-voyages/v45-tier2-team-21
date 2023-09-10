@@ -19,8 +19,6 @@ function PieChart(props: any) {
           "#EEE9DA",
           "#DFA67B",
         ],
-        borderColor: "black",
-        borderWidth: 1,
       },
     ],
   };
@@ -30,6 +28,9 @@ function PieChart(props: any) {
       <Pie
         data={chartData}
         options={{
+          layout: {
+            padding: 0
+          },
           plugins: {
             title: {
               display: true,

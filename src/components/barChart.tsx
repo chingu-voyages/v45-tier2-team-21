@@ -19,8 +19,6 @@ function BarChart(props: any) {
           "#EEE9DA",
           "#DFA67B",
         ],
-        borderColor: "black",
-        borderWidth: 1,
       },
     ],
   };

@@ -76,6 +76,23 @@ footer #code-source-link {
   display: none;
 }
 
+.title-font {
+  font-size: xx-large;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-tile {
+  display: flex;
+  gap: 2rem;
+  padding-top: 1rem;
+}
+
 /* Responsive */
 
 @media screen and (min-width: 768px) {
