@@ -1,0 +1,141 @@
+#homepage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+#about {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  padding: 1rem;
+  gap: 4rem;
+}
+
+#about #meteorite_img {
+  width: 320px;
+  height: 320px;
+}
+
+#about #meteorite_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+#description {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+#description h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+#description p {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  /* color: var(--secondary-color-600); */
+}
+
+.meteorite {
+  position: absolute;
+  width: 8rem;
+  aspect-ratio: 1;
+  z-index: -1;
+  transition: all 0.5s ease-in;
+}
+
+#meteorite-1 {
+  bottom: -0.75vh;
+  right: 4%;
+  filter: blur(0.25px) brightness(0.9) contrast(1.15);
+}
+
+#meteorite-2 {
+  top: -2.75vh;
+  right: 25%;
+  width: 6rem;
+  filter: blur(0.5px) brightness(0.8) contrast(1.15);
+}
+
+#meteorite-3 {
+  bottom: 12vh;
+  left: 50%;
+  width: 4rem;
+  filter: blur(0.75px) brightness(0.75) contrast(1.15);
+}
+
+#meteorite-4 {
+  top: 3vh;
+  right: 3.75%;
+  width: 4.75rem;
+  filter: blur(0.8px) brightness(0.65) contrast(1.15);
+}
+
+.meteorite img {
+  object-fit: contain;
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 768px) {
+  .meteorite {
+    opacity: 0;
+  }
+
+  #about #meteorite_img {
+    position: absolute;
+    top: -7rem;
+    left: -2rem;
+    width: 8rem;
+    aspect-ratio: 1;
+    z-index: -1;
+    filter: blur(1px) brightness(1.25) contrast(1.2);
+    animation: fade-in 1s linear;
+  }
+
+  #about {
+    width: 100%;
+  }
+
+  #about #description {
+    width: 100%;
+  }
+
+  #homepage {
+    align-items: start;
+    justify-content: normal;
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #about #description h2 {
+    white-space: normal;
+  }
+
+  #about {
+    padding: 0.45rem;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

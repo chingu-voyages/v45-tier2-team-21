@@ -1,9 +1,9 @@
 import Loader from '@/components/ui/loader'
 
-const SplashScreen = () => {
+const AboutPageLoading = () => {
   return (
     <Loader/>
   )
 }
 
-export default SplashScreen
+export default AboutPageLoading

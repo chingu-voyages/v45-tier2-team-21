@@ -1,5 +1,5 @@
 "use client"
-import styles from "@/styles/page.module.css";
+import styles from "@/styles/homePage.module.css";
 import Image from "next/image";
 
 export default function Home() {
@@ -17,6 +17,20 @@ export default function Home() {
           <Image src={"/assets/meteorite.png"} alt={"meteorite"} width={516} height={516} />
         </div>
       </section>
+
+      {/* Meteorites */}
+      <div id={styles["meteorite-1"]} className={styles["meteorite"]} >
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
+      </div>
+      <div id={styles["meteorite-2"]} className={styles["meteorite"]} >
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
+      </div>
+      <div id={styles["meteorite-3"]} className={styles["meteorite"]} >
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
+      </div>
+      <div id={styles["meteorite-4"]} className={styles["meteorite"]} >
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
+      </div>
     </div>
   );
 }

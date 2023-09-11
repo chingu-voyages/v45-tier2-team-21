@@ -1,27 +1,29 @@
+"use client"
+import styles from '@/styles/navBar.module.css'
 import Link from 'next/link';
-import React from 'react'
-import { BsSearch } from 'react-icons/bs';
+import { MdPeople } from 'react-icons/md'
 import { AiFillHome, AiOutlineAreaChart } from 'react-icons/ai';
+import { usePathname } from 'next/navigation';
 
 type Props = {
+  iconsSize: number;
+} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
 
-} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+const NavBar = ({iconsSize, ...props}: Props) => {
+  const pathname = usePathname();
 
-const NavBar = (props:Props) => {
   return (
-    <div {...props}>
-      <nav>
-        <Link href="/">
-          <AiFillHome size={24}/>
-        </Link>
-        <Link href="/search">
-          <BsSearch size={24}/>
-        </Link>
-        <Link href="/graph">
-          <AiOutlineAreaChart size={24}/>
-        </Link>
-      </nav>
-    </div>
+    <nav {...props} >
+      <Link href="/" className={styles['icons']} id={pathname === "/" ? styles["active"] : ""} >
+        <AiFillHome size={iconsSize} />
+      </Link>
+      <Link href="/meteorites" className={styles['icons']} id={pathname === "/meteorites" ? styles["active"] : ""} >
+        <AiOutlineAreaChart size={iconsSize} />
+      </Link>
+      <Link href="/about-us" className={styles['icons']} id={pathname === "/about-us" ? styles["active"] : ""}>
+        <MdPeople size={iconsSize} />
+      </Link>
+    </nav>
   )
 }
 

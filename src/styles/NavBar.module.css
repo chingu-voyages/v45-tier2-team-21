@@ -1,0 +1,11 @@
+.icons {
+  color: var(--secondary-color-100);
+  padding: 0.5rem;
+  border-radius: var(--border-radius-sm);
+  transition: color 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#active {
+  background: var(--secondary-color-600);
+}

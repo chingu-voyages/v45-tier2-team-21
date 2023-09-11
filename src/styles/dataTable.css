@@ -1,0 +1,143 @@
+#container {
+  width: min(768px, 100% - 3rem);
+}
+
+#header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 0 1rem 0;
+}
+
+#header>div {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+#header input[type="search"] {
+  padding: 0.5rem 0.25rem;
+  width: 12rem;
+}
+
+#header button {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+}
+
+#wrapper {
+  width: 100%;
+  height: 24rem;
+  overflow: auto;
+  background-color: var(--secondary-color-100);
+  border: 1px solid var(--secondary-color-600);
+}
+
+#wrapper::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+#wrapper::-webkit-scrollbar-track {
+  background: #acacac;
+}
+
+#wrapper::-webkit-scrollbar-thumb {
+  border-radius: var(--border-radius-md);
+  background-color: #dc853d;
+}
+
+#wrapper::-webkit-scrollbar-thumb:hover {
+  background: #d48c4d;
+}
+
+table {
+  user-select: none;
+  position: relative;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td:first-child {
+  border-left: none;
+}
+
+td:last-child {
+  border-right: none;
+}
+
+td {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--secondary-color-600);
+  color: var(--secondary-color-800);
+  letter-spacing: 1.02px;
+  white-space: nowrap;
+}
+
+thead>tr {
+  position: sticky;
+  top: 0;
+}
+
+thead>tr>th>div {
+  width: 100%;
+  background-color: #ef954b;
+  color: #fcfcfc;
+  font-weight: bold;
+  white-space: nowrap;
+  padding: 0.75rem 0.5rem 0.25rem 0.5rem;
+}
+
+.sortable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+#controller {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#controller #right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+#controller #navigation {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#controller #navigation button {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#null-result {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 100%;
+  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

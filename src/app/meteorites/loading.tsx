@@ -1,9 +1,9 @@
 import Loader from '@/components/ui/loader'
 
-const SplashScreen = () => {
+const MeteoritesPageLoading = () => {
   return (
     <Loader/>
   )
 }
 
-export default SplashScreen
+export default MeteoritesPageLoading
