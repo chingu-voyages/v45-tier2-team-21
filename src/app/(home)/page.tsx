@@ -14,7 +14,7 @@ export default function Home() {
         </div>
 
         <div id={styles["meteorite_img"]}>
-          <Image src={"/assets/meteorite.png"} alt={"meteorite"} width={516} height={516} />
+          <Image src={"/assets/meteorite.png"} alt={"meteorite"} priority width={516} height={516} />
         </div>
       </section>
 
