@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import NextThemesProvider from '@/providers/NextThemesProvider';
 import NextProgressBarProvider from '@/providers/NextProgressBarProvider';
-import Header from '@/components/Header';
-import NavBar from '@/components/ui/NavBar';
+import Header from '@/components/header';
+import NavBar from '@/components/ui/navBar';
 
 export const metadata: Metadata = {
   title: 'Team 21 Fireball',

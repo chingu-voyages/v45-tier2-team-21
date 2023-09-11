@@ -1,4 +1,4 @@
-import Loader from '@/components/ui/Loader'
+import Loader from '@/components/ui/loader'
 
 const MeteoritesPageLoading = () => {
   return (

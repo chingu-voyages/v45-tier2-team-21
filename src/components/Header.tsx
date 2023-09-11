@@ -1,9 +1,9 @@
 "use client"
 import React from 'react'
-import MenuButton from './ui/MenuButton'
-import ThemeButton from './ui/ThemeButton'
+import MenuButton from './ui/menuButton'
+import ThemeButton from './ui/themeButton'
 import styles from '@/styles/header.module.css'
-import NavBar from './ui/NavBar'
+import NavBar from './ui/navBar'
 
 type Props = {}
 

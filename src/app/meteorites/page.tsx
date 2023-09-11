@@ -1,81 +1,76 @@
 "use client";
-import DataTable from "@/components/DataTable";
+import DataTable from "@/components/dataTable";
 import BarChart from "@/components/barChart";
 import columns from "@/constants/columns";
-
+import styles from '@/styles/meteoritesPage.module.css'
 import { getMeteorites } from "@/hooks/getMeteorites";
 import { useState, useEffect } from "react";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import PieChart from "@/components/pieChart";
-import FilterSearch from "@/components/filterSearch";
 
 Chart.register(CategoryScale);
 
-const MeteoritesPage = () => {
+const countStrikeByYear = (filteredData: Meteorite[]) => {
+  const strikesPerYear: { [key: number]: number } = {};
+  filteredData.forEach((met) => {
+    const year = new Date(met.year).getFullYear();
+    if (met.fall === "Fell") {
+      strikesPerYear[year] = (strikesPerYear[year] || 0) + 1;
+    }
+  });
+  return strikesPerYear;
+}
 
-  const [filteredData, setFilteredData] = useState<Meteorite[]>([]);
+const countMeteoritePerReclass = (filteredData: Meteorite[]) => {
+  const meteoritePerReclass: { [key: string]: number } = {};
+    filteredData.forEach((met) => {
+      if (!meteoritePerReclass[met.recclass]) {
+        meteoritePerReclass[met.recclass] = 0;
+      }
+      meteoritePerReclass[met.recclass]++;
+    });
+    return meteoritePerReclass;
+}
+
+const MeteoritesPage = () => {
+  const [meteorites, setMeteorites] = useState<Meteorite[]>([]);
+  const [filteredData, setFilteredData] = useState<Meteorite[]>(meteorites)
   const [chartData, setChartData] = useState({
     bar: {},
     pie: {},
   });
-  const [inputValue, setInputValue] = useState("");
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
-  };
-
+  // Getting the meteorites data
   useEffect(() => {
     const fetchData = async () => {
       const data = await getMeteorites();
-      console.log(data);
-      const filtered = data.filter((met) =>
-        met.name.toLowerCase().includes(inputValue.toLowerCase())
-      );
-      setFilteredData(filtered);
-
-      const strikesPerYear: { [key: number]: number } = {};
-      filteredData.forEach((met) => {
-        const year = new Date(met.year).getFullYear();
-        if (met.fall === "Fell") {
-          strikesPerYear[year] = (strikesPerYear[year] || 0) + 1;
-        }
-      });
-
-      setChartData((prev) => ({
-        ...prev,
-        bar: strikesPerYear,
-      }));
-
-      const resources: { [key: string]: number } = {};
-      filteredData.forEach((met) => {
-        if (!resources[met.recclass]) {
-          resources[met.recclass] = 0;
-        }
-        resources[met.recclass]++;
-      });
-
-      setChartData((prev) => ({
-        ...prev,
-        pie: resources,
-      }));
-    };
+      if (data) setMeteorites(data);
+    }
     fetchData();
-  }, []);
+  }, [])
+
+  useEffect(() => {
+    const strikesPerYear = countStrikeByYear(filteredData);
+    setChartData((prev) => ({
+      ...prev,
+      bar: strikesPerYear,
+    }));
+
+    const meteoritePerReclass = countMeteoritePerReclass(filteredData);
+    setChartData((prev) => ({
+      ...prev,
+      pie: meteoritePerReclass,
+    }));
+  }, [filteredData]);
 
   return (
-    <div>
-      <FilterSearch
-        inputValue={inputValue}
-        handleInputChange={handleInputChange}
-      />
-      <div className="meteor-table">
-        <div className="chart">
-          <BarChart chartData={chartData.bar} />
-          <PieChart chartData={chartData.pie} />
-        </div>
-        <DataTable data={filteredData} columns={columns} />
+    <div id={styles['meteorites']}>
+      <div id={styles['chart']}>
+        <BarChart chartData={chartData.bar} />
+        <PieChart chartData={chartData.pie} />
       </div>
+      <DataTable data={meteorites} columns={columns} setFilteredData={setFilteredData} title={"Table of Meteorites"} />
     </div>
   );
 };
