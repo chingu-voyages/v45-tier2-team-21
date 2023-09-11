@@ -1,9 +1,9 @@
 "use client"
 import React from 'react'
-import MenuButton from './ui/menuButton'
-import ThemeButton from './ui/themeButton'
+import MenuButton from './ui/MenuButton'
+import ThemeButton from './ui/ThemeButton'
 import styles from '@/styles/header.module.css'
-import NavBar from './ui/navBar'
+import NavBar from './ui/NavBar'
 
 type Props = {}
 
@@ -12,7 +12,7 @@ const Header = (props: Props) => {
 
   return (
     <header id={styles["header"]}>
-      <h1>Logo</h1>
+      <h1>Team 21</h1>
       <div id={styles["header-icons"]}>
         <ThemeButton />
         <div id={styles['nav']}>

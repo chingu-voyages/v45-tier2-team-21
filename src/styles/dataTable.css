@@ -111,6 +111,10 @@ thead>tr>th>div {
   padding: 1rem;
 }
 
+.p-4 {
+  padding: 2rem;
+}
+
 #controller #right {
   display: flex;
   align-items: center;
@@ -127,8 +131,6 @@ thead>tr>th>div {
   width: 28px;
   height: 28px;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #null-result {
@@ -140,4 +142,9 @@ thead>tr>th>div {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.chart-container {
+  width: 700px;
+  height: 300px;
 }

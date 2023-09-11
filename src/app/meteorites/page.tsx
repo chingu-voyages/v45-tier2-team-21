@@ -1,5 +1,4 @@
 "use client";
-import DataTable from "@/components/dataTable";
 import BarChart from "@/components/barChart";
 import columns from "@/constants/columns";
 import styles from '@/styles/meteoritesPage.module.css'
@@ -8,6 +7,7 @@ import { useState, useEffect } from "react";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import PieChart from "@/components/pieChart";
+import DataTable from "@/components/DataTable";
 
 Chart.register(CategoryScale);
 
@@ -66,11 +66,12 @@ const MeteoritesPage = () => {
 
   return (
     <div id={styles['meteorites']}>
+      <DataTable data={meteorites} columns={columns} setFilteredData={setFilteredData} title={"Table of Meteorites"} />
+
       <div id={styles['chart']}>
         <BarChart chartData={chartData.bar} />
         <PieChart chartData={chartData.pie} />
       </div>
-      <DataTable data={meteorites} columns={columns} setFilteredData={setFilteredData} title={"Table of Meteorites"} />
     </div>
   );
 };

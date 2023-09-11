@@ -109,3 +109,7 @@ footer #code-source-link {
     z-index: 1000;
   }
 }
+
+h1 {
+  font-size: xx-large;
+}
