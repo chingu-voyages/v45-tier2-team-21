@@ -1,13 +1,23 @@
 "use client"
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
 import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs'
+import ClientComponent from '../clientComponent'
 
 type Props = {}
 
+const styles = {
+  minHeight: "32px",
+  minWidth: "32px",
+  padding: "0.45rem 0.5rem",
+  border: "1px solid var(--secondary-color-800)",
+  borderRadius: "var(--border-radius-sm)",
+  color: "var(--secondary-color-800)",
+  backgroundColor: "var(--secondary-color-100)",
+  cursor: "pointer"
+}
+
 const ThemeButton = (props: Props) => {
   const { resolvedTheme, setTheme } = useTheme();
-  console.log("🚀 ~ file: ThemeButton.tsx:10 ~ ThemeButton ~ resolvedTheme:", resolvedTheme)
 
   const toggleTheme = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -15,20 +25,21 @@ const ThemeButton = (props: Props) => {
   }
 
   return (
-    <button onClick={toggleTheme} style={{
-      padding: "0.45rem 0.5rem",
-      border: "1px solid var(--secondary-color-800)",
-      borderRadius: "var(--border-radius-sm)",
-      color: "var(--secondary-color-800)",
-      backgroundColor: "var(--secondary-color-100)",
-      cursor: "pointer"
-    }} >
-      {
-        resolvedTheme === "dark"
-          ? <BsFillSunFill size={24} />
-          : <BsFillMoonFill size={24} />
-      }
-    </button>
+    <ClientComponent fallback={<button style={{
+      ...styles,
+      backgroundColor: "var(--secondary-color-400)",
+      opacity: "25%",
+      filter: "brightness(1.2) blur(1px)"
+    }} />}>
+      <button onClick={toggleTheme} style={styles} >
+        {
+          resolvedTheme === "dark"
+            ? <BsFillSunFill size={16} />
+            : <BsFillMoonFill size={16} />
+        }
+      </button>
+    </ClientComponent>
+
   )
 }
 
