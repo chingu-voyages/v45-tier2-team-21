@@ -1,4 +1,3 @@
-import Meteorite from "@/types/meteorite";
 import { ColumnDef } from "@tanstack/react-table";
 
 const columns: ColumnDef<Meteorite>[] = [
