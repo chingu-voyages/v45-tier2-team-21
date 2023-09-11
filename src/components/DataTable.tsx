@@ -58,9 +58,9 @@ const DataTable = ({ data, columns, title, setFilteredData }: Props) => {
         </div>
 
         <button id='filter-btn'>
-          <BsFilter size={18}/>
+          <BsFilter size={18} />
           <span>Filter</span>
-          <RiArrowDropDownLine size={28}/>
+          <RiArrowDropDownLine size={28} />
         </button>
       </div>
       <div id='wrapper'>
@@ -116,9 +116,18 @@ const DataTable = ({ data, columns, title, setFilteredData }: Props) => {
                       }
                     </tr>
                   ))}</>
-                : <div id="null-result">
-                  <span>No result found</span>
-                </div>
+                :
+                <tr>
+                  <td style={{border: "none"}}>
+                    <div id="null-result">
+                      {
+                        globalFilter === ""
+                        ? <span>Please wait...</span>
+                        : <span>No result found</span>
+                      }
+                    </div>
+                  </td>
+                </tr>
             }
           </tbody>
         </table>
