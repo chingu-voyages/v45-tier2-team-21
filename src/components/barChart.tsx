@@ -28,6 +28,7 @@ function BarChart(props: any) {
       <Bar
         data={chartData}
         options={{
+          responsive: true,
           plugins: {
             title: {
               display: true,

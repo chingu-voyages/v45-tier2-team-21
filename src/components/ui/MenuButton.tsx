@@ -12,8 +12,8 @@ const MenuButton = ({ open, iconClassName, ...props }: Props) => {
     <button {...props}>
       {
         open
-          ? <MdMenu size={20} className={iconClassName} />
-          : <MdClose size={20} className={iconClassName} />
+          ? <MdClose size={20} className={iconClassName} />
+          : <MdMenu size={20} className={iconClassName} />
       }
     </button>
   )

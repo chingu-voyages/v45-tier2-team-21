@@ -1,7 +1,7 @@
 "use client"
 import { useTheme } from 'next-themes'
 import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs'
-import ClientComponent from '../ClientComponent'
+import ClientComponent from '../clientComponent'
 
 type Props = {}
 

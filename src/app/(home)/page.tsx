@@ -14,35 +14,23 @@ export default function Home() {
         </div>
 
         <div id={styles["meteorite_img"]}>
-          <Image src={"/assets/meteorite.png"} alt={"meteorite"} width={516} height={516} />
+          <Image src={"/assets/meteorite.png"} alt={"meteorite"} priority width={516} height={516} />
         </div>
       </section>
 
       {/* Meteorites */}
       <div id={styles["meteorite-1"]} className={styles["meteorite"]} >
-        <Image src="/assets/meteorite1.png" alt="" fill />
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
       </div>
       <div id={styles["meteorite-2"]} className={styles["meteorite"]} >
-        <Image src="/assets/meteorite1.png" alt="" fill />
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
       </div>
       <div id={styles["meteorite-3"]} className={styles["meteorite"]} >
-        <Image src="/assets/meteorite1.png" alt="" fill />
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
       </div>
       <div id={styles["meteorite-4"]} className={styles["meteorite"]} >
-        <Image src="/assets/meteorite1.png" alt="" fill />
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
       </div>
-
-      {/* Shooting Star */}
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
     </div>
   );
 }

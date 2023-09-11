@@ -1,15 +1,24 @@
 import '@/styles/globals.css';
 import type { Metadata } from 'next'
+import { Nunito_Sans } from 'next/font/google'
 import Link from 'next/link'
 import NextThemesProvider from '@/providers/NextThemesProvider';
 import NextProgressBarProvider from '@/providers/NextProgressBarProvider';
-import Header from '@/components/Header';
-import NavBar from '@/components/ui/NavBar';
+import Header from '@/components/header';
+import NavBar from '@/components/ui/navBar';
 
 export const metadata: Metadata = {
   title: 'Team 21 Fireball',
   description: 'Web App to explore data about meteorites near Earth',
 }
+
+const nunito_sans = Nunito_Sans({
+  adjustFontFallback: true,
+  weight: '500',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-nunito-sans'
+})
 
 export default function RootLayout({
   children,
@@ -17,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={nunito_sans.className} suppressHydrationWarning>
       <body>
         <NextThemesProvider>
           <NextProgressBarProvider>
