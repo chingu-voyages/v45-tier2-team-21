@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Icon } from "@iconify/react";
+import { BsGithub } from "react-icons/bs"
 import styles from "../styles/usercard.module.css";
 import Image from "next/image";
 
@@ -25,8 +25,8 @@ function UserCard(props: UserCardProps) {
           <h1 className="title-font">{props.name}</h1>
           <p>{props.description}</p>
         </div>
-        <Link href={`https://github.com/${props.username}`}>
-          <Icon icon="mdi:github" fontSize={30} />
+        <Link href={`https://github.com/${props.username}`} target='_blank'>
+          <BsGithub size={30} />
         </Link>
       </section>
     </section>
