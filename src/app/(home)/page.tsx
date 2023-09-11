@@ -20,29 +20,17 @@ export default function Home() {
 
       {/* Meteorites */}
       <div id={styles["meteorite-1"]} className={styles["meteorite"]} >
-        <Image src="/assets/meteorite1.png" alt="" fill />
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
       </div>
       <div id={styles["meteorite-2"]} className={styles["meteorite"]} >
-        <Image src="/assets/meteorite1.png" alt="" fill />
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
       </div>
       <div id={styles["meteorite-3"]} className={styles["meteorite"]} >
-        <Image src="/assets/meteorite1.png" alt="" fill />
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
       </div>
       <div id={styles["meteorite-4"]} className={styles["meteorite"]} >
-        <Image src="/assets/meteorite1.png" alt="" fill />
+        <Image src="/assets/meteorite1.png" alt="" fill sizes=" " />
       </div>
-
-      {/* Shooting Star */}
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
-      <span className="star" />
     </div>
   );
 }
