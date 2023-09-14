@@ -21,7 +21,7 @@ const orbit = Orbitron({
 function UserCard(props: UserCardProps) {
   return (
     <section className={styles.users}>
-      <div className="user-image">
+      <div className={styles.userimage}>
         <Image
           src={"/assets/avatar.png"}
           alt={"meteorite"}

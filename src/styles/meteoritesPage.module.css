@@ -17,3 +17,12 @@
   padding: 1rem;
   margin-bottom: 4rem;
 }
+
+@media screen and (max-width: 767px) {
+  #meteorites {
+    align-items: unset;
+  }
+  #chart {
+    display: unset;
+  }
+}

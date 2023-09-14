@@ -62,6 +62,7 @@ footer {
   justify-content: center;
   align-items: center;
   color: var(--secondary-color-600);
+  margin: 3rem 0;
 }
 
 footer #code-source-link {
@@ -85,6 +86,7 @@ footer #code-source-link {
 
 .user-tile {
   display: flex;
+  flex-direction: column;
   gap: 2rem;
   padding-top: 1rem;
 }
@@ -107,6 +109,12 @@ footer #code-source-link {
     border-radius: var(--border-radius-md);
     gap: 0.5rem;
     z-index: 1000;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .user-tile {
+    flex-direction: row;
   }
 }
 
