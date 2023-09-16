@@ -1,5 +1,5 @@
 #container {
-  width: 1024px;
+  width: min(768px, 100vw - 3rem);
 }
 
 #header {
@@ -67,12 +67,12 @@ td {
   white-space: nowrap;
 }
 
-thead>tr {
+thead > tr {
   position: sticky;
   top: 0;
 }
 
-thead>tr>th>div {
+thead > tr > th > div {
   width: 100%;
   background-color: #ef954b;
   color: #fcfcfc;
@@ -196,41 +196,25 @@ thead>tr>th>div {
   height: 300px;
 }
 
-@media screen and (max-width: 1200px) {
-  @media screen and (min-width: 480px) {
-    #container {
-      width: 500px;
-    }
+@media screen and (max-width: 767px) {
+  #header {
+    flex-direction: column-reverse;
+    align-items: center;
   }
 
-  @media screen and (max-width: 767px) {
-    #header {
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem;
-    }
-
-    .chart-container {
-      width: 375px;
-      height: 300px;
-    }
+  #header #global-info {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  #header h2 {
+    font-size: 1.5rem;
+    white-space: nowrap;
   }
 
-  @media screen and (max-width: 480px) {
-    #container {
-      width: 360px;
-    }
-  }
-}
-
-@media screen and (min-width: 992px) {
-  #container {
-    width: 800px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  #container {
-    width: 700px;
+  .chart-container {
+    width: 375px;
+    height: 300px;
   }
 }
