@@ -19,7 +19,7 @@
   height: min-content;
   padding: 1.45rem 2rem 1rem 1rem;
   border-radius: var(--border-radius-md);
-  background-color: var(--primary-color-600);
+  background-color: var(--primary-color-100);
   color: var(--secondary-color-800);
   backdrop-filter: opacity(0.5);
   z-index: 1000;

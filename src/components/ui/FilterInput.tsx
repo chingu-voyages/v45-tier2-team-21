@@ -1,36 +1,24 @@
-import { Column, Table } from '@tanstack/react-table'
-import React from 'react'
-import DebouncedInput from './DebouncedInput'
+import { Column, Table } from "@tanstack/react-table";
+import React from "react";
+import DebouncedInput from "./DebouncedInput";
 
 type Props = {
-  column: Column<any, unknown>
-  table: Table<any>
-  value: string | { min: number, max: number }
-  onChange: (value: string | { min: number, max: number }) => void
-}
+  column: Column<any, unknown>;
+  table: Table<any>;
+};
 
 function isNumber(value?: string | number): boolean {
-  return ((value != null) &&
-    (value !== '') &&
-    !isNaN(Number(value.toString())));
+  return value != null && value !== "" && !isNaN(Number(value.toString()));
 }
 
-const FilterInput = ({ column, table, value,onChange }: Props) => {
+const FilterInput = ({ column, table }: Props) => {
   let firstValue: string | number = table
     .getPreFilteredRowModel()
-    .flatRows[0]?.getValue(column.id)
+    .flatRows[0]?.getValue(column.id);
 
-  if (column.id === 'year') {
-    const value = firstValue as string;
-    firstValue = Number(value ? value.slice(0, 4) : "0")
-  }
-
-  console.log("🚀 ~ file: FilterInput.tsx:21 ~ FilterInput ~ firstValue:", firstValue,typeof firstValue)
-
-  
   if (isNumber(firstValue)) firstValue = Number(firstValue);
-  
-  const columnFilterValue = column.getFilterValue()
+
+  const columnFilterValue = column.getFilterValue();
 
   const sortedUniqueValues = React.useMemo(
     () =>
@@ -38,70 +26,58 @@ const FilterInput = ({ column, table, value,onChange }: Props) => {
         ? []
         : Array.from(column.getFacetedUniqueValues().keys()).sort(),
     [column.getFacetedUniqueValues()]
-  )
+  );
 
-  return isNumber(firstValue) && typeof value !== 'string' ? (
+  return isNumber(firstValue) ? (
     <div>
       <div className="min-max-fields">
         <DebouncedInput
           type="number"
-          min={Number(column.getFacetedMinMaxValues()?.[0] ?? '')}
-          max={Number(column.getFacetedMinMaxValues()?.[1] ?? '')}
-          // value={(columnFilterValue as [number, number])?.[0] ?? ''}
-          value={value.min}
-          onChange={value =>
-            column.setFilterValue((old: [number, number]) => {
-              onChange({ min: value as number, max: old?.[1] })
-              return [value, old?.[1]]
-            })
+          min={Number(column.getFacetedMinMaxValues()?.[0] ?? "")}
+          max={Number(column.getFacetedMinMaxValues()?.[1] ?? "")}
+          value={(columnFilterValue as [number, number])?.[0] ?? ""}
+          onChange={(value) =>
+            column.setFilterValue((old: [number, number]) => [value, old?.[1]])
           }
-          placeholder={`Min ${column.getFacetedMinMaxValues()?.[0]
-            ? `(${column.getFacetedMinMaxValues()?.[0]})`
-            : ''
-            }`}
+          placeholder={`Min ${
+            column.getFacetedMinMaxValues()?.[0]
+              ? `(${column.getFacetedMinMaxValues()?.[0]})`
+              : ""
+          }`}
         />
         <DebouncedInput
           type="number"
-          min={Number(column.getFacetedMinMaxValues()?.[0] ?? '')}
-          max={Number(column.getFacetedMinMaxValues()?.[1] ?? '')}
-          // value={(columnFilterValue as [number, number])?.[1] ?? ''}
-          value={value.max}
-          onChange={value =>
-            column.setFilterValue((old: [number, number]) => {
-              onChange({ min: old?.[0], max: value as number })
-              return [old?.[0], value]
-            })
-
+          min={Number(column.getFacetedMinMaxValues()?.[0] ?? "")}
+          max={Number(column.getFacetedMinMaxValues()?.[1] ?? "")}
+          value={(columnFilterValue as [number, number])?.[1] ?? ""}
+          onChange={(value) =>
+            column.setFilterValue((old: [number, number]) => [old?.[0], value])
           }
-
-          placeholder={`Max ${column.getFacetedMinMaxValues()?.[1]
-            ? `(${column.getFacetedMinMaxValues()?.[1]})`
-            : ''
-            }`}
+          placeholder={`Max ${
+            column.getFacetedMinMaxValues()?.[1]
+              ? `(${column.getFacetedMinMaxValues()?.[1]})`
+              : ""
+          }`}
         />
       </div>
       <div />
     </div>
   ) : (
     <>
-      <datalist id={column.id + 'list'}>
+      <datalist id={column.id + "list"}>
         {sortedUniqueValues.slice(0, 5000).map((value: any) => (
           <option value={value} key={value} />
         ))}
       </datalist>
       <DebouncedInput
         type="text"
-        // value={(columnFilterValue ?? '') as string}
-        value={value as string}
-        onChange={value => {
-          column.setFilterValue(value)
-          onChange(value as string)
-        }}
+        value={(columnFilterValue ?? "") as string}
+        onChange={(value) => column.setFilterValue(value)}
         placeholder={`Search... (${column.getFacetedUniqueValues().size})`}
-        list={column.id + 'list'}
+        list={column.id + "list"}
       />
     </>
-  )
-}
+  );
+};
 
-export default FilterInput
+export default FilterInput;

@@ -4,7 +4,7 @@ const useOutsideClick = (ref: RefObject<HTMLElement>, callback: () => void) => {
   let clickedOutside = false;
   useEffect(() => {
     const outsideEvent = (event: MouseEvent) => {
-      if (!ref.current?.contains(event.target as Node)) {
+      if ( !ref.current?.contains(event.target as Node)) {
         callback();
         clickedOutside = true;
       }
@@ -15,7 +15,7 @@ const useOutsideClick = (ref: RefObject<HTMLElement>, callback: () => void) => {
     return () => {
       document.removeEventListener("mousedown", outsideEvent);
     }
-  }, [ref]);
+  }, [ref, callback]);
 
   return clickedOutside;
 };
