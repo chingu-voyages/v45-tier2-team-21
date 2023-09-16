@@ -1,4 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
+import { format } from "date-fns";
 
 const columns: ColumnDef<Meteorite>[] = [
   {
@@ -20,7 +21,7 @@ const columns: ColumnDef<Meteorite>[] = [
   {
     header: "Mass",
     accessorKey: "mass",
-    filterFn: "inNumberRange"
+    filterFn: "inNumberRange",
   },
   {
     header: "Fall",
@@ -29,11 +30,11 @@ const columns: ColumnDef<Meteorite>[] = [
   {
     header: "Year Of Strike",
     accessorKey: "year",
-    cell: ({getValue}) =>  {
+    cell: ({ getValue }) => {
       const value = getValue() as string;
-      return Number(value ? value.slice(0, 4) : "")
+      return value ? format(new Date(value), "dd/MM/yyy") : "";
     },
-    filterFn: 'inNumberRange',
+    filterFn: "inNumberRange",
   },
   {
     header: "Latitude",
