@@ -24,7 +24,7 @@ function BarChart(props: any) {
   };
 
   return (
-    <div className="chart-container">
+    <div id="bar-chart-container">
       <Bar
         data={chartData}
         options={{
