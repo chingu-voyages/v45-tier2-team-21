@@ -11,7 +11,7 @@ type Props = {
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
 
 const NavBar = React.forwardRef(({iconsSize, ...props}: Props, ref) => {
-  const navRef = (ref || React.useRef<HTMLElement>(null)) as React.RefObject<HTMLElement>;
+  const navRef = ref as React.RefObject<HTMLElement>;
   const pathname = usePathname();
 
   return (
@@ -28,5 +28,7 @@ const NavBar = React.forwardRef(({iconsSize, ...props}: Props, ref) => {
     </nav>
   )
 })
+
+NavBar.displayName = "NavBar"
 
 export default NavBar
