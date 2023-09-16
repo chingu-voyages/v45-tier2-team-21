@@ -48,6 +48,21 @@ a {
   text-decoration: none;
 }
 
+input {
+  padding: 0.5rem 0.25rem;
+  min-width: 12rem;
+  width: 100%;
+}
+
+input[type="number"] {
+  min-width: max-content;
+  width: 50%;
+}
+
+li {
+  list-style: none;
+}
+
 main {
   width: 100%;
   min-height: 100vh;
@@ -55,6 +70,7 @@ main {
   grid-auto-flow: row;
   grid-template-columns: 1fr;
   grid-template-rows: 12% 80% 8%;
+  overflow: hidden;
 }
 
 footer {
@@ -62,7 +78,6 @@ footer {
   justify-content: center;
   align-items: center;
   color: var(--secondary-color-600);
-  margin: 3rem 0;
 }
 
 footer #code-source-link {
@@ -99,7 +114,7 @@ footer #code-source-link {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     right: 16px;
     top: 40%;
     width: min-content;

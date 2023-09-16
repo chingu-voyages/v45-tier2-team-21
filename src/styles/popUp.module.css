@@ -1,6 +1,41 @@
 #container {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(2px) brightness(0.75);
+  background-color: var(--secondary-color-100) opacity(0);
+  /* backdrop-filter: blur(3px) brightness(0.5); */
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  z-index: 900;
+}
+
+#container > #child {
+  width: 80vw;
+  min-width: 300px;
+  min-height: 120px;
+  height: min-content;
+  padding: 1.45rem 2rem 1rem 1rem;
+  border-radius: var(--border-radius-md);
+  background-color: var(--primary-color-600);
+  color: var(--secondary-color-800);
+  backdrop-filter: opacity(0.5);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+#close-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: 2px solid var(--secondary-color-600);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }

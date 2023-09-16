@@ -20,6 +20,7 @@ const columns: ColumnDef<Meteorite>[] = [
   {
     header: "Mass",
     accessorKey: "mass",
+    filterFn: "inNumberRange"
   },
   {
     header: "Fall",
@@ -28,6 +29,11 @@ const columns: ColumnDef<Meteorite>[] = [
   {
     header: "Year Of Strike",
     accessorKey: "year",
+    cell: ({getValue}) =>  {
+      const value = getValue() as string;
+      return Number(value ? value.slice(0, 4) : "")
+    },
+    filterFn: 'inNumberRange',
   },
   {
     header: "Latitude",
@@ -40,7 +46,7 @@ const columns: ColumnDef<Meteorite>[] = [
   {
     header: "GeoLocation",
     accessorFn: (row) => {
-      return `${row.geolocation?.latitude} ${row.geolocation?.longitude}`;
+      return `${row.geolocation?.latitude}° ${row.geolocation?.longitude}°`;
     },
   },
 ];
