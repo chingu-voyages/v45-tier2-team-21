@@ -4,7 +4,7 @@ import { Nunito_Sans } from 'next/font/google'
 import Link from 'next/link'
 import NextThemesProvider from '@/providers/NextThemesProvider';
 import NextProgressBarProvider from '@/providers/NextProgressBarProvider';
-import Header from '@/components/header';
+import Header from '@/components/Header';
 import NavBar from '@/components/ui/navBar';
 
 export const metadata: Metadata = {
@@ -34,7 +34,7 @@ export default function RootLayout({
               <Header />
               <NavBar iconsSize={24} id='navbar'/>
               {children}
-              <footer>© Copyright 2023 - Code Source&nbsp;<Link href="" id='code-source-link'>Here</Link></footer>
+              <footer>© Copyright 2023 - Code Source&nbsp;<Link href="https://github.com/chingu-voyages/v45-tier2-team-21" id='code-source-link'>Here</Link></footer>
             </main>
           </NextProgressBarProvider>
         </NextThemesProvider>

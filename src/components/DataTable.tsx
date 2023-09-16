@@ -3,14 +3,16 @@ import React from 'react';
 import '@/styles/dataTable.css';
 import { flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, useReactTable } from "@tanstack/react-table";
 import { ColumnDef } from "@tanstack/react-table";
-import { BsArrowUpShort, BsArrowDownShort, BsFilter } from 'react-icons/bs'
-import { RiArrowDropDownLine } from 'react-icons/ri'
+import { BsArrowUpShort, BsArrowDownShort } from 'react-icons/bs'
+import FilterButton from './filterButton';
+import DebouncedInput from './ui/DebouncedInput';
+import VariantButton from './ui/VariantButton';
 
 type Props = {
   data: any;
   columns: ColumnDef<any>[];
   title: string;
-  setFilteredData: React.Dispatch<React.SetStateAction<any>>;
+  setFilteredData: (value: any) => void;
 }
 
 const DataTable = ({ data, columns, title, setFilteredData }: Props) => {
@@ -31,7 +33,7 @@ const DataTable = ({ data, columns, title, setFilteredData }: Props) => {
   React.useEffect(() => {
     const newData: Meteorite[] = [];
     table.getFilteredRowModel().rows.forEach(row => {
-      newData.push(row.original);
+      newData.push(row.original as Meteorite);
     })
     setFilteredData(newData);
   }, [table.getFilteredRowModel().rows])
@@ -40,28 +42,28 @@ const DataTable = ({ data, columns, title, setFilteredData }: Props) => {
     table.setPageSize(10);
   }, [table])
 
-  const handleGlobalFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    setGlobalFilter(String(event.target.value));
+  const handleGlobalFilterChange = (value: string | number) => {
+    setGlobalFilter(String(value));
   }
 
   return (
     <div id='container'>
       <div id="header">
-        <div>
+        <div id='global-info'>
           <h2>{title}</h2>
-          <input
+          <DebouncedInput
+            id='global-filter'
             type="search"
             value={globalFilter ?? ''}
             onChange={handleGlobalFilterChange}
             placeholder='Global Search' />
         </div>
-
-        <button id='filter-btn'>
-          <BsFilter size={18} />
-          <span>Filter</span>
-          <RiArrowDropDownLine size={28} />
-        </button>
+        <div className="buttons">
+          <FilterButton table={table} setGlobalFilter={setGlobalFilter} />
+          <VariantButton color="red" onClick={() => { table.reset(); setGlobalFilter('') }}>
+            Clear
+          </VariantButton>
+        </div>
       </div>
       <div id='wrapper'>
         <table>
@@ -118,12 +120,12 @@ const DataTable = ({ data, columns, title, setFilteredData }: Props) => {
                   ))}</>
                 :
                 <tr>
-                  <td style={{border: "none"}}>
+                  <td style={{ border: "none" }}>
                     <div id="null-result">
                       {
-                        globalFilter === ""
-                        ? <span>Please wait...</span>
-                        : <span>No result found</span>
+                        table.getFilteredRowModel().rows.length === 0
+                          ? <span>No result found</span>
+                          : <span>Please wait...</span>
                       }
                     </div>
                   </td>
@@ -139,6 +141,7 @@ const DataTable = ({ data, columns, title, setFilteredData }: Props) => {
           <div>
             <span>Rows per Page {' '}</span>
             <select
+              id='pagination'
               value={table.getState().pagination.pageSize}
               onChange={e => {
                 table.setPageSize(Number(e.target.value))

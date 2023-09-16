@@ -1,5 +1,9 @@
+import { ArcElement } from "chart.js";
+import Chart from "chart.js/auto";
 import React from "react";
 import { Pie } from "react-chartjs-2";
+
+Chart.register(ArcElement);
 
 function PieChart(props: any) {
   const chartData = {
@@ -19,6 +23,8 @@ function PieChart(props: any) {
           "#EEE9DA",
           "#DFA67B",
         ],
+        borderColor: "black",
+        borderWidth: 0,
       },
     ],
   };
@@ -28,6 +34,8 @@ function PieChart(props: any) {
       <Pie
         data={chartData}
         options={{
+          responsive: true,
+          aspectRatio: 1,
           layout: {
             padding: 0
           },

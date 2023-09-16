@@ -9,7 +9,7 @@ export default function Home() {
         <div id={styles["description"]}>
           <h2>Welcome to our website</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi alias molestias repellendus molestiae qui iure aut vero adipisci officia necessitatibus numquam aliquam maiores ex assumenda repellat architecto omnis sapiente sed quaerat mollitia, reiciendis voluptatum. Perspiciatis, nam. Illum maxime sint commodi, accusamus, earum at, omnis dolor quia fugiat perferendis nesciunt! Earum consequuntur perferendis veniam iure neque. Recusandae quos ipsam dicta qui soluta, aliquam iste. Suscipit?
+          Welcome to our project, "21st Century Meteorite Strikes." As part of the Chingu Voyage team, we are embarking on an exciting journey to leverage this extensive dataset to create an innovative web application. Our mission is to empower anyone with an interest in meteorite strikes to explore this data in ways never before imagined.
           </p>
         </div>
 

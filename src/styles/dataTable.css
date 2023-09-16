@@ -1,5 +1,5 @@
 #container {
-  width: min(768px, 100% - 3rem);
+  width: min(768px, 100vw - 3rem);
 }
 
 #header {
@@ -8,27 +8,13 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0 0 1rem 0;
+  width: 100%;
 }
 
-#header>div {
+#header #global-info {
   display: flex;
   align-items: flex-end;
   gap: 1rem;
-}
-
-#header input[type="search"] {
-  padding: 0.5rem 0.25rem;
-  width: 12rem;
-}
-
-#header button {
-  display: flex;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  font-size: 1rem;
 }
 
 #wrapper {
@@ -81,12 +67,12 @@ td {
   white-space: nowrap;
 }
 
-thead>tr {
+thead > tr {
   position: sticky;
   top: 0;
 }
 
-thead>tr>th>div {
+thead > tr > th > div {
   width: 100%;
   background-color: #ef954b;
   color: #fcfcfc;
@@ -111,6 +97,10 @@ thead>tr>th>div {
   padding: 1rem;
 }
 
+.p-4 {
+  padding: 2rem;
+}
+
 #controller #right {
   display: flex;
   align-items: center;
@@ -129,6 +119,11 @@ thead>tr>th>div {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+#controller #navigation button:disabled {
+  cursor: auto;
 }
 
 #null-result {
@@ -140,4 +135,86 @@ thead>tr>th>div {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.controller-filter-btn {
+  width: 100%;
+  justify-content: right;
+}
+
+.variant-btn {
+  padding: 0.55rem 0.5rem;
+  color: #fcfcfc;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.variant-btn:active {
+  background-color: opacity(0.8);
+  outline: 1px solid #acacac;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#fields {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.25rem 0.5rem;
+}
+
+.min-max-fields {
+  display: flex;
+  gap: 1rem;
+}
+
+#header #filter-btn {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.5rem;
+  font-size: 1rem;
+}
+
+.chart-container {
+  width: 700px;
+  height: 300px;
+}
+
+@media screen and (max-width: 767px) {
+  #header {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  #header #global-info {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  #header h2 {
+    font-size: 1.5rem;
+    white-space: nowrap;
+  }
+
+  .chart-container {
+    width: 375px;
+    height: 300px;
+  }
 }

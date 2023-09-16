@@ -4,16 +4,18 @@ import Link from 'next/link';
 import { MdPeople } from 'react-icons/md'
 import { AiFillHome, AiOutlineAreaChart } from 'react-icons/ai';
 import { usePathname } from 'next/navigation';
+import React from 'react';
 
 type Props = {
   iconsSize: number;
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
 
-const NavBar = ({iconsSize, ...props}: Props) => {
+const NavBar = React.forwardRef(({iconsSize, ...props}: Props, ref) => {
+  const navRef = (ref || React.useRef<HTMLElement>(null)) as React.RefObject<HTMLElement>;
   const pathname = usePathname();
 
   return (
-    <nav {...props} >
+    <nav {...props} ref={navRef}>
       <Link href="/" className={styles['icons']} id={pathname === "/" ? styles["active"] : ""} >
         <AiFillHome size={iconsSize} />
       </Link>
@@ -25,6 +27,6 @@ const NavBar = ({iconsSize, ...props}: Props) => {
       </Link>
     </nav>
   )
-}
+})
 
 export default NavBar

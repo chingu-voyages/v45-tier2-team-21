@@ -28,3 +28,9 @@
     align-self: flex-end;
     padding: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+    .userimage {
+        display: none;
+    }
+}
