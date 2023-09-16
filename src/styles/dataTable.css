@@ -8,27 +8,13 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0 0 1rem 0;
+  width: 100%;
 }
 
-#header>div {
+#header #global-info {
   display: flex;
   align-items: flex-end;
   gap: 1rem;
-}
-
-#header input[type="search"] {
-  padding: 0.5rem 0.25rem;
-  width: 12rem;
-}
-
-#header button {
-  display: flex;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  font-size: 1rem;
 }
 
 #wrapper {
@@ -131,6 +117,13 @@ thead>tr>th>div {
   width: 28px;
   height: 28px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#controller #navigation button:disabled {
+  cursor: auto;
 }
 
 #null-result {
@@ -144,6 +137,92 @@ thead>tr>th>div {
   align-items: center;
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.controller-filter-btn {
+  width: 100%;
+  justify-content: right;
+}
+
+.variant-btn {
+  padding: 0.75rem 1rem;
+  color: #fcfcfc;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.variant-btn:active {
+  background-color: opacity(0.8);
+  outline: 1px solid #acacac;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#fields {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.25rem 0.5rem;
+}
+
+.min-max-fields {
+  display: flex;
+  gap: 1rem;
+}
+
+#header #filter-btn {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.5rem;
+  font-size: 1rem;
+}
+
+#drop-down {
+  position: absolute;
+  top: 3.5rem;
+  right: 0;
+  width: 16rem;
+  background-color: var(--secondary-color-800);
+  color: var(--secondary-color-100);
+  border-radius: var(--border-radius-sm);
+  padding: 0.5rem 0.25rem;
+  padding-bottom: 0.25rem;
+  text-align: start;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.drp-element {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: var(--border-radius-sm);
+  background-color: #d1cecebe;
+}
+
+.add-element {
+  background: var(--secondary-color-100);
+  color: var(--secondary-color-800);
+  padding: 0.75rem 0.5rem;
+  font-weight: bold;
+  
+}
+
 .chart-container {
   width: 700px;
   height: 300px;
@@ -155,21 +234,24 @@ thead>tr>th>div {
       width: 500px;
     }
   }
-  @media screen and (max-width: 767px) { 
+
+  @media screen and (max-width: 767px) {
     #header {
       flex-direction: column;
       align-items: center;
       padding: 1rem;
     }
+
     .chart-container {
       width: 375px;
       height: 300px;
     }
   }
+
   @media screen and (max-width: 480px) {
     #container {
       width: 360px;
-    } 
+    }
   }
 }
 

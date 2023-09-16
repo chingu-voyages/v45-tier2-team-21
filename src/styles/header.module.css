@@ -44,7 +44,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 2.75rem;
   left: -2px;
   width: min-content;
@@ -63,6 +63,7 @@
 
 .navbar-hidden {
   opacity: 0;
+  display: none !important;
 }
 
 /* Responsive */
