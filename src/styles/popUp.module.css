@@ -3,9 +3,8 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: var(--secondary-color-100) opacity(0);
-  /* backdrop-filter: blur(3px) brightness(0.5); */
   display: flex;
   justify-content: center;
   padding-top: 2rem;
@@ -14,7 +13,7 @@
 
 #container > #child {
   width: 80vw;
-  min-width: 300px;
+  min-width: 248px;
   min-height: 120px;
   height: min-content;
   padding: 1.45rem 2rem 1rem 1rem;

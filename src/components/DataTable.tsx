@@ -163,7 +163,7 @@ const DataTable = ({ data, columns, title, setFilteredData }: Props) => {
       <div id="controller">
         <div id="left">{table.getPrePaginationRowModel().rows.length} Rows</div>
         <div id="right">
-          <div>
+          <div id="pagination-container">
             <span>Rows per Page </span>
             <select
               id="pagination"

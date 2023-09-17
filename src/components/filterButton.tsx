@@ -24,7 +24,7 @@ const FilterButton = ({ table, columnFilters, setColumnFilters }: Props) => {
   const [popupOpen, setPopupOpen] = React.useState(false);
   const [dropDownOpen, setDropDownOpen] = React.useState(false);
   const [filters, setFilters] = React.useState<ColumnFiltersState[]>([]);
-  const dropDownRef = React.useRef<HTMLUListElement>(null);
+  const dropDownRef = React.useRef<HTMLButtonElement>(null);
   useOutsideClick(dropDownRef, () => {
     setDropDownOpen(false);
   });
@@ -36,12 +36,16 @@ const FilterButton = ({ table, columnFilters, setColumnFilters }: Props) => {
 
   return (
     <>
-      <button id="filter-btn" onClick={() => setDropDownOpen(!dropDownOpen)}>
+      <button
+        id="filter-btn"
+        ref={dropDownRef}
+        onClick={() => setDropDownOpen(!dropDownOpen)}
+      >
         <BsFilter size={18} />
         <span>Filter</span>
         <RiArrowDropDownLine size={28} />
         {dropDownOpen ? (
-          <ul id="drop-down" ref={dropDownRef}>
+          <ul id="drop-down">
             <li
               className="drp-element add-element"
               onClick={() => setPopupOpen(true)}

@@ -66,7 +66,7 @@ li {
 
 main {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 1fr;
@@ -133,7 +133,7 @@ footer #code-source-link {
 }
 
 .variant-btn {
-  padding: 0.75rem 1rem;
+  padding: 0.7rem 1rem;
   color: #fcfcfc;
   border: none;
   border-radius: var(--border-radius-sm);
