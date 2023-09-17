@@ -10,7 +10,7 @@ type Meteorite = {
     recclass: string;
     mass: number;
     fall: string;
-    year: Date;
+    year: string | number;
     reclat?: number;
     reclong?: number;
     geolocation?: {

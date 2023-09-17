@@ -5,9 +5,8 @@
   align-items: center;
   padding: 1rem;
   gap: 1.5rem;
-  margin-top: 2rem;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 #chart {
@@ -15,16 +14,6 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  gap: 5rem;
+  gap: 1rem;
   padding: 1rem;
-  margin-bottom: 4rem;
-}
-
-@media screen and (max-width: 767px) {
-  #meteorites {
-    align-items: unset;
-  }
-  #chart {
-    display: unset;
-  }
 }
