@@ -4,12 +4,13 @@
 
 Welcome to the Meteorite Strikes Explorer project! This web application allows you to explore data about meteorite strikes recorded by NASA, providing valuable insights and visualizations.
 
+Start exploring meteorite strikes data by clicking [here](https://meteorite-team21.netlify.app/meteorites).
+
 ## Table of Contents
 
 - [About](#about)
 - [API](#api)
 - [Technologies](#technologies)
-- [Usage](#usage)
 - [Contributors](#contributors)
 
 ## About
